@@ -20,52 +20,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="1">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>JSON请求体:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="4">
-     <widget class="QPushButton" name="tojson">
-      <property name="text">
-       <string>JSON格式化(Ctrl+F)</string>
-      </property>
-      <property name="shortcut">
-       <string>Ctrl+F</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>服务器返回结果:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>请求方法：</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1" colspan="3">
-     <widget class="QTextEdit" name="jsonbody">
-      <property name="placeholderText">
-       <string>详情见 &lt;a href=&quot;https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html&quot;&gt;&lt;/a&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>请求url：</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4">
+    <item row="0" column="5">
      <widget class="QPushButton" name="requestbtn">
       <property name="text">
        <string>发送请求(Ctrl+D)</string>
@@ -78,31 +33,24 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>传输进度:</string>
+    <item row="0" column="3">
+     <widget class="QLineEdit" name="url">
+      <property name="placeholderText">
+       <string>如 192.168.123.11:8088/index/type/id</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="4">
-     <widget class="QPushButton" name="toformat">
+    <item row="6" column="5">
+     <widget class="QPushButton" name="tojson">
       <property name="text">
-       <string>格式化(Ctrl+S)</string>
+       <string>JSON格式化(Ctrl+F)</string>
       </property>
       <property name="shortcut">
-       <string>Ctrl+S</string>
+       <string>Ctrl+F</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="2" colspan="2">
-     <widget class="QProgressBar" name="progressBar">
-      <property name="value">
-       <number>0</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
+    <item row="1" column="3">
      <widget class="QComboBox" name="method">
       <item>
        <property name="text">
@@ -136,30 +84,109 @@
       </item>
      </widget>
     </item>
-    <item row="6" column="1" colspan="2">
-     <widget class="QTabWidget" name="tabWidget">
+    <item row="6" column="1">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>服务器返回结果:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>请求url：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QCheckBox" name="issync">
+      <property name="text">
+       <string>是否同步请求</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>请求方法：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>JSON请求体</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="5">
+     <widget class="QPushButton" name="toformat">
+      <property name="text">
+       <string>格式化(Ctrl+S)</string>
+      </property>
+      <property name="shortcut">
+       <string>Ctrl+S</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="3">
+     <widget class="QTabWidget" name="requestTab">
       <property name="currentIndex">
        <number>1</number>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>http header</string>
+        <string>请求头</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="gridLayout_5">
         <item row="0" column="0">
-         <widget class="QTextEdit" name="header"/>
+         <widget class="QTableWidget" name="reqheader">
+          <row>
+           <property name="text">
+            <string>1</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>2</string>
+           </property>
+          </row>
+          <column>
+           <property name="text">
+            <string>key</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>value</string>
+           </property>
+          </column>
+          <item row="0" column="0">
+           <property name="text">
+            <string>Content-Type</string>
+           </property>
+          </item>
+          <item row="0" column="1">
+           <property name="text">
+            <string>application/json;charset=UTF-8</string>
+           </property>
+          </item>
+         </widget>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>http body</string>
+        <string>JSON请求体</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_2">
+       <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
-         <widget class="QTextEdit" name="response">
-          <property name="readOnly">
-           <bool>true</bool>
+         <widget class="QTextEdit" name="jsonbody">
+          <property name="placeholderText">
+           <string>详情见 &lt;a href=&quot;https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html&quot;&gt;&lt;/a&gt;</string>
           </property>
          </widget>
         </item>
@@ -167,17 +194,128 @@
       </widget>
      </widget>
     </item>
-    <item row="0" column="2">
-     <widget class="QLineEdit" name="url">
-      <property name="placeholderText">
-       <string>如 192.168.123.11:8088/index/type/id</string>
+    <item row="6" column="2">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>MIME类型</string>
       </property>
+     </widget>
+    </item>
+    <item row="4" column="1" colspan="4">
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1" colspan="3">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>返回头</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTableWidget" name="respheader">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <column>
+           <property name="text">
+            <string>key</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>value</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>返回体</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QTextEdit" name="response"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>web浏览器</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QWebEngineView" name="webview">
+          <property name="url">
+           <url>
+            <string>about:blank</string>
+           </url>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QComboBox" name="mimetype">
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="5" alignment="Qt::AlignTop">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="refresh">
+         <property name="text">
+          <string>刷新页面</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="debug">
+         <property name="text">
+          <string>调试窗口</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="changeview">
+         <property name="text">
+          <string>放大</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="Resource.qrc"/>
  </resources>
@@ -191,22 +329,6 @@
     <hint type="sourcelabel">
      <x>407</x>
      <y>47</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>url</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>urlchanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>407</x>
-     <y>19</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
@@ -262,6 +384,70 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>issync</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>isSyncChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>732</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>reqheader</sender>
+   <signal>cellChanged(int,int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>reqheadChanged(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>334</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>webview</sender>
+   <signal>urlChanged(QUrl)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>urlChange(QUrl)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>334</x>
+     <y>473</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mimetype</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>mimetypeChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>410</x>
+     <y>342</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>urlchanged(QString)</slot>
@@ -269,5 +455,9 @@
   <slot>request()</slot>
   <slot>toJson()</slot>
   <slot>toFormat()</slot>
+  <slot>isSyncChanged(bool)</slot>
+  <slot>reqheadChanged(int,int)</slot>
+  <slot>urlChange(QUrl)</slot>
+  <slot>mimetypeChanged(QString)</slot>
  </slots>
 </ui>
